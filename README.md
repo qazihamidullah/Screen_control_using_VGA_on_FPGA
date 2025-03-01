@@ -15,7 +15,8 @@ will see hardware implemented shape-drawing in action.
 The top-level diagram of your lab is shown below.  The VGA Adapter Core is a component that is 
 given to you! This is common practice in industrial design – taking predesigned components that 
 are either purchased or written by another group and incorporating them into your own design.   
-Figure 1: Overall Block Diagram 
+![image](https://github.com/user-attachments/assets/20fb9f68-db2a-445a-a420-9d1d8d9e939d)
+
  
 **Task 1:  Understand the VGA Adapter Core **   
 The VGA Adapter core was created at the University of Toronto for a course similar to ours.  The  
@@ -24,41 +25,16 @@ Toronto’s web page: https://www.eecg.utoronto.ca/~jayar/ece241_07F/vga/
 Some of the following figures have been taken from that website (with permission!).    
 In order to save on the limited memory on DE2 board, the VGA Adapter core has been setup to 
 display a grid of 160x120 pixels, with the interface shown in Figure 2: 
+![image](https://github.com/user-attachments/assets/d66eaac7-a679-4f1c-ac0e-01276bf4ef79)
+
 Inputs: 
-Resetn Active low reset signal (does not reset the screen buffer). 
-Digital circuits with state elements should always contain a reset. 
-Clock 
-Clock signal. 
-The  VGA  Adapter  core  must  be  fed  with  a  50MHz  clock  to  function 
-correctly. 
-Colour (2 down to 0) 
-Pixel colour (3 bits). 
-Sets  the  colour  of  the  pixel  to  be  drawn.  The  three  bits  indicate  the 
-presence  of  Red,  Green  and  Blue  components  for  a  total  of  8  colour 
-combinations. 
-x (7 down to 0) X coordinate of pixel to be drawn (8 bits) – supported values 0 ≤ x < 160. 
-y (6 down to 0) Y coordinate of pixel to be drawn (7 bits) – supported values 0 ≤ x < 120. 
-Plot 
-Active high plot signal. 
-Raise this signal to cause the pixel at (x, y) to be set to the specified colour 
-on the next rising clock edge. 
-Figure 2: VGA Adapter core as a black box 
+![image](https://github.com/user-attachments/assets/fc96da0c-2df5-4d95-9d59-53f448aa62b7)
+
 Outputs: 
 Note: You shouldn’t have to worry about the outputs except that they need to be properly 
 connected to your top-level ports. 
-VGA_CLK VGA clock signal. 
-VGA_R (9 down to 0) 
-VGA_G (9 down to 0) 
-VGA_B (9 down to 0) 
-Red, Green, Blue components of display (10 bits). 
-These signals are connected to the Digital-to-Analog Converter (DAC) 
-on the DE2 board (or whichever you have) before transmitting to the 
-monitor. 
-VGA_HS 
-VGA_VS 
-VGA_SYNC 
-VGA_BLANK 
-VGA control signals. 
+![image](https://github.com/user-attachments/assets/5e787d81-9ada-4942-806b-c1b7bf4d6650)
+ 
  
 Note that you will connect the outputs of the VGA Adapter core directly to appropriate output 
 pins of the FPGA (please see the datasheet for your particular board).  
@@ -68,6 +44,8 @@ the  VGA  Adapter  core  is  to  continuously  draw  the  same  thing  on  the s
 refresh rate, e.g. 60 Hz. To do this, it has an internal memory that stores the colour of each pixel. 
 Your circuit will write pixel colours to the VGA Adapter core. 
 Figure 3: VGA Adapter core’s display grid 
+![image](https://github.com/user-attachments/assets/49dc1b08-39bf-4d7d-b8c2-019a669f55c5)
+
 To set the colour of a pixel, you first drive the VGA Adapter Core’s X, Y and COLOUR inputs with 
 the pixels’ x coordinate, y coordinate, and desired color value, respectively. You then raise the 
 PLOT input to high.  You must keep these values driven until  the next rising clock edge.  At the 
@@ -77,6 +55,7 @@ diagram  (from  the  UofT  Website),  two  pixels  are  changed:  one  at  (15, 
 (109,12).  As you can see, the first pixel drawn is green (rgb = 010) and is placed at (15, 62). The 
 second is a yellow pixel at (109, 12).  It is important to note that, at most, one pixel can be changed 
 on each cycle.  If you want to change the colour of m pixels, you need m clock cycles. 
+![image](https://github.com/user-attachments/assets/556db339-6ac9-46d9-9e1f-299708e1eb41)
 Download the  VGA  core  from  UofT  website.  The  Verilog files describing the VGA  Adapter  core 
 can be included into Altera Quartus II project.  You shouldn’t be modifying the VGA Adapter Core 
 code at all!!!   
@@ -106,7 +85,8 @@ Hint: Modelsim will be very useful for debugging your component’s outputs.
 **Task 3: Bresenham Line Algorithm ** 
 The  Bresenham  Line  algorithm  is  a  hardware  (or  software!)  friendly  algorithm  to  draw  lines 
 between arbitrary points on the screen.  The basic algorithm is as follows (taken from Wikipedia):  
-  
+  ![image](https://github.com/user-attachments/assets/b98959f7-80ca-453c-959e-ebf028143b03)
+
 The algorithm is efficient: it contains no multiplication or division (multiplication by 2 can be 
 implemented by a shift-register that shifts right). Because of its simplicity and efficiency, the 
 Bresenham Line Algorithm can be found in many software graphics libraries, and in graphics 

@@ -1,9 +1,9 @@
-###Learning Objectives:    
+# Learning Objectives:    
 1. Independently design a data-path and control-path system in Verilog.    
 2. Gain experience in porting a software algorithm to hardware.  
 3. Gain experience of using third-party IP in the design. 
 4. Get familiar with using mostly used VGA interface.  
-###Overview:
+# Overview:
 In this assignment, you will be designing your own hardware to draw lines on the VGA screen.  At 
 first glance, you might think that drawing lines is really boring or you might think that it’s not very 
 useful for you to learn about. Turns out though, it is one of the most fundamental operations in 
@@ -18,7 +18,7 @@ are either purchased or written by another group and incorporating them into you
 ![image](https://github.com/user-attachments/assets/20fb9f68-db2a-445a-a420-9d1d8d9e939d)
 
  
-**Task 1:  Understand the VGA Adapter Core **   
+# Task 1:  Understand the VGA Adapter Core   
 The VGA Adapter core was created at the University of Toronto for a course similar to ours.  The  
 following describes enough for you to use the core; more details can be found on University of 
 Toronto’s web page: https://www.eecg.utoronto.ca/~jayar/ece241_07F/vga/         
@@ -27,10 +27,10 @@ In order to save on the limited memory on DE2 board, the VGA Adapter core has be
 display a grid of 160x120 pixels, with the interface shown in Figure 2: 
 ![image](https://github.com/user-attachments/assets/d66eaac7-a679-4f1c-ac0e-01276bf4ef79)
 
-Inputs: 
+## Inputs: 
 ![image](https://github.com/user-attachments/assets/fc96da0c-2df5-4d95-9d59-53f448aa62b7)
 
-Outputs: 
+## Outputs: 
 Note: You shouldn’t have to worry about the outputs except that they need to be properly 
 connected to your top-level ports. 
 ![image](https://github.com/user-attachments/assets/5e787d81-9ada-4942-806b-c1b7bf4d6650)
@@ -67,7 +67,7 @@ This task is not worth any marks, but you should do it to ensure that everything
 Make  sure  you  include the  Adaptor  Core files  in your  project:  vga_adapter.v,  vga_controller.v, 
 vga_address_translator.v and vga_pll.v.  And remember to set up your pin assignments for your 
 board.   
-**Task 2:  Fill the Screen **
+# Task 2:  Fill the Screen
 You  will  create  a  new  component  that  interfaces  with  the  VGA  Adaptor  Core.  It  will  contain  a 
 simple FSM to fill the screen with colours. This is done by writing to one pixel at a time in the VGA 
 Adapter core.  Each row will be set to a different colour (repeating every 8 rows). Since you can 
@@ -82,7 +82,7 @@ VGA (analog). Note: the VGA connection on your laptop is an OUTPUT, so do not co
 laptop’s VGA port to your DE board.    
 Hint: Modelsim will be very useful for debugging your component’s outputs. 
  
-**Task 3: Bresenham Line Algorithm ** 
+# Task 3: Bresenham Line Algorithm
 The  Bresenham  Line  algorithm  is  a  hardware  (or  software!)  friendly  algorithm  to  draw  lines 
 between arbitrary points on the screen.  The basic algorithm is as follows (taken from Wikipedia):  
   ![image](https://github.com/user-attachments/assets/b98959f7-80ca-453c-959e-ebf028143b03)
@@ -92,7 +92,7 @@ implemented by a shift-register that shifts right). Because of its simplicity an
 Bresenham Line Algorithm can be found in many software graphics libraries, and in graphics 
 chips.  
  
-In this task, you will implement a circuit that behaves as follows:  
+### In this task, you will implement a circuit that behaves as follows:  
   
 1. The  switch  KEY(3)  is  an asynchronous  reset.   When  the  machine  is  reset,  it  will 
 start  clearing the  screen  to black.    Hint:  Task2  is basically  clearing the  screen  if 
@@ -125,7 +125,7 @@ clearly distinguish the datapath from the FSM in your Verilog code (i.e. don’t
 giant always block to do everything).  The reason that this is a requirement is that we 
 want you to practice manual partitioning of the datapath and FSM for now.    
   
-Suggestions and Hints 
+### Suggestions and Hints 
 Here are some hints and things to think about:    
 1. Think  about  how  you  will  partition  your  FSM  and  Datapath  before  you  start  writing  any 
 Verilog.    
@@ -139,12 +139,12 @@ in the equation “e2 := 2*error”,  “e2” must be 1-bit larger than “erro
 Not keeping track of signs (read up on the “signed” keyword in verilog) and sign bits can also 
 cause overflow. Overflow can be a pain to debug unless you know to look for it. 
  
-**Challenge Circuit: (10 mark) **
+# Challenge Circuit:
 Challenge tasks are tasks that you should only perform if you have extra time, are keen, and 
 want to show off a little bit.  This challenge task is only worth 10 marks.  If you don’t demo the 
 challenge task, the maximum score you can get on this assignment is 90/100 (which is still an 
 A+). 
-This challenge task is actually fairly easy:  
+### This challenge task is actually fairly easy:  
 A. In  the  original  circuit,  you  always  connect  the  centre  of  the  screen  (80,60)  to  the 
 point specified by the user.  Modify your circuit such that, instead of starting from 
 the centre, it starts from the point specified by the user in the previous iteration.  So 

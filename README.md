@@ -1,9 +1,9 @@
-**Learning Objectives:**    
+###Learning Objectives:    
 1. Independently design a data-path and control-path system in Verilog.    
 2. Gain experience in porting a software algorithm to hardware.  
 3. Gain experience of using third-party IP in the design. 
 4. Get familiar with using mostly used VGA interface.  
-**Overview: **
+###Overview:
 In this assignment, you will be designing your own hardware to draw lines on the VGA screen.  At 
 first glance, you might think that drawing lines is really boring or you might think that it’s not very 
 useful for you to learn about. Turns out though, it is one of the most fundamental operations in 

@@ -1,0 +1,6 @@
+
+State Machine - |vga_demo|Task3_fsm:Task3_fsm_inst1|state
+Name state.reset_state state.draw_line state.user_input 
+state.reset_state 0 0 0 
+state.user_input 1 0 1 
+state.draw_line 1 1 0 

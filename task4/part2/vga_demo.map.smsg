@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at Task3_fsm.sv(162): always construct contains both blocking and non-blocking assignments File: C:/Users/qazis/Downloads/DSD Assignment 02/Assignment_2/task4/part2/Task3_fsm.sv Line: 162
+Warning (10268): Verilog HDL information at Task3_fsm.sv(180): always construct contains both blocking and non-blocking assignments File: C:/Users/qazis/Downloads/DSD Assignment 02/Assignment_2/task4/part2/Task3_fsm.sv Line: 180

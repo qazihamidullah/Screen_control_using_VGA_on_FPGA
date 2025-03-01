@@ -1,0 +1,19 @@
+
+
+C:/Users/qazis/Downloads/Compressed/DSD assignment 2/VGA_demo/vga_adapter/vga_pll.v
+
+Mar 16 06PM:45:41>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/qazis/Downloads/Compressed/DSD assignment 2/VGA_demo/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+C:/Users/qazis/Downloads/Compressed/DSD assignment 2/VGA_demo/vga_adapter/vga_pll.v
+
+Mar 17 07PM:47:12>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/qazis/Downloads/Compressed/DSD assignment 2/VGA_demo/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
